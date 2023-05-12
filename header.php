@@ -132,40 +132,54 @@ $about_text="$rs[about_text]";
                     </a>
                     <div class="ml-auto"></div>
                     <!-- Navbar -->
-                    <ul class="navbar-nav items">
+                   <ul class="navbar-nav items">
                         <li class="nav-item">
-                            <a class="nav-link" href="home">Home </a>
-
+                            <a class="nav-link" href="home">Home</a>
                         </li>
                         <li class="nav-item">
                             <a href="about" class="nav-link">About Us</a>
                         </li>
                         <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Services</a>
-                        <ul class="dropdown-menu">
-                            <?php
-                        $q="SELECT * FROM  service ORDER BY id DESC LIMIT 5";
-                        $r123 = mysqli_query($con,$q);
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Services</a>
+                            <ul class="dropdown-menu">
+                                <?php
+                                $q="SELECT * FROM service ORDER BY id DESC LIMIT 5";
+                                $r123 = mysqli_query($con,$q);
 
-                        while($ro = mysqli_fetch_array($r123))
-                        {
+                                while($ro = mysqli_fetch_array($r123))
+                                {
+                                    $id="$ro[id]";
+                                    $service_title="$ro[service_title]";
 
-                            $id="$ro[id]";
-                            $service_title="$ro[service_title]";
-
-                        print "
-                        <li class='py-2'><a class='text-black-50' href='servicedetail.php?id=$id'>$service_title</a></li>
-                        ";
-                        }
-                        ?>
-                        </ul>
-                    </li>
+                                    print "
+                                    <li class='py-2'><a class='text-black-50' href='servicedetail.php?id=$id'>$service_title</a></li>
+                                    ";
+                                }
+                                ?>
+                            </ul>
+                        </li>
                         <li class="nav-item">
                             <a href="portfolio" class="nav-link">Portfolio</a>
                         </li>
-
-
+                        <li class="nav-item">
+                        <a class="nav-link" href="cart">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </li>
+                        <?php if(isset($_SESSION['user_id'])) { ?>
+                            <li class="nav-item">
+                                <a href="logout" class="nav-link">Logout</a>
+                            </li>
+                        <?php } else { ?>
+                            <li class="nav-item">
+                                <a href="login" class="nav-link">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="register" class="nav-link">Register</a>
+                            </li>
+                        <?php } ?>
                     </ul>
+
 
                     <!-- Navbar Toggler -->
                     <ul class="navbar-nav toggle">

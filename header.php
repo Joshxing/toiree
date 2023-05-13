@@ -132,7 +132,7 @@ $about_text="$rs[about_text]";
                     </a>
                     <div class="ml-auto"></div>
                     <!-- Navbar -->
-                   <ul class="navbar-nav items">
+                    <ul class="navbar-nav items">
                         <li class="nav-item">
                             <a class="nav-link" href="home">Home</a>
                         </li>
@@ -162,23 +162,86 @@ $about_text="$rs[about_text]";
                             <a href="portfolio" class="nav-link">Portfolio</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="cart">
-                            <i class="fas fa-shopping-cart"></i>
+                            <a class="nav-link" href="cart">
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user"></i>
                         </a>
-                    </li>
-                        <?php if(isset($_SESSION['user_id'])) { ?>
-                            <li class="nav-item">
-                                <a href="logout" class="nav-link">Logout</a>
-                            </li>
-                        <?php } else { ?>
-                            <li class="nav-item">
-                                <a href="login" class="nav-link">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="register" class="nav-link">Register</a>
-                            </li>
-                        <?php } ?>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                            <?php if (isset($_SESSION['user_id'])) { ?>
+                                <a class="dropdown-item" href="logout.php">Logout</a>
+                            <?php } else { ?>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#registerModal">Register</a>
+                            <?php } ?>
+                        </div>
+                    </li> 
+
+                    <!-- Login Modal -->
+                    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="login.php" method="post">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Login</button>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- Registration Modal -->
+                    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="register.php" method="post">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Register</button>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+
                     </ul>
+
+
+                        
 
 
                     <!-- Navbar Toggler -->

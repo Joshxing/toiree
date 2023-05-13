@@ -436,28 +436,28 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <div class="partner-slider owl-carousel">
-                    <div class="partner-item">
-                        <img src="/assets/img/team/thumb_1.jpg" alt="">
-                    </div>
-                    <div class="partner-item">
-                        <img src="/assets/img/avatar/avatar-1.png" alt="">
-                    </div>
-                    <div class="partner-item">
-                        <img src="/assets/img/avatar/avatar-3.png" alt="">
-                    </div>
-                    <div class="partner-item">
-                        <img src="/assets/img/avatar/avatar-2.png" alt="">
-                    </div>
-                    <div class="partner-item">
-                        <img src="/assets/img/avatar/avatar-1.png" alt="">
-                    </div>
+        <div class="row">
+        <div class="col-12">
+            <div class="partner-slider owl-carousel justify-content-center">
+                <div class="partner-item">
+                    <img src="/assets/img/team/thumb_1.jpg" alt="">
+                </div>
+                <div class="partner-item">
+                    <img src="/assets/img/avatar/avatar-1.png" alt="">
+                </div>
+                <div class="partner-item">
+                    <img src="/assets/img/avatar/avatar-3.png" alt="">
+                </div>
+                <div class="partner-item">
+                    <img src="/assets/img/avatar/avatar-2.png" alt="">
+                </div>
+                <div class="partner-item">
+                    <img src="/assets/img/avatar/avatar-1.png" alt="">
                 </div>
             </div>
         </div>
     </div>
+
 </section>
 
         <!--====== Call To Action Area End ======-->
